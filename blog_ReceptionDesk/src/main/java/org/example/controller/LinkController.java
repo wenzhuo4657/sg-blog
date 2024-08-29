@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-    @RequestMapping("/link")
+@RequestMapping("/link")
 public class LinkController {
     @Autowired
     private LinkService linkService;

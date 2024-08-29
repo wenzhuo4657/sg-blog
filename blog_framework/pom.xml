@@ -60,11 +60,13 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-        </dependency> <!--阿里云OSS-->
+        </dependency>
+        <!--阿里云OSS-->
         <dependency>
             <groupId>com.aliyun.oss</groupId>
             <artifactId>aliyun-sdk-oss</artifactId>
-        </dependency> <!--AOP-->
+        </dependency>
+        <!--AOP-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>

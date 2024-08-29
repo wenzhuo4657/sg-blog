@@ -236,6 +236,8 @@ public class RedisCache
         return redisTemplate.keys(pattern);
     }
 
+
+
     public void incrementViewCount(String s, String string, int i) {
         redisTemplate.opsForHash().increment(s,string,i);
     }

@@ -58,8 +58,6 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, Category> impl
                 .collect(Collectors.toList());
 
 
-
-
 //        分装为vo
         List<CategoryVo> li= BeancopyUtils.copyBeanList(list,CategoryVo.class);
 

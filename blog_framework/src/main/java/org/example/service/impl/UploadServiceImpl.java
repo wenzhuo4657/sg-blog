@@ -85,10 +85,6 @@ public class UploadServiceImpl implements UploadService {
         } catch (Exception ex) {
             //ignore
         }
-
         return  "上传失败";
-
-
-
     }
 }

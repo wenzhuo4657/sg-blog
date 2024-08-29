@@ -21,7 +21,7 @@
         </encoder>
     </appender>
 
-    <!--html格式日志文件输出appender-->
+    <!--正常格式日志文件输出appender-->
         <appender name="All_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
             <file>${log_dir}/All/demo.log</file>
             <encoder>

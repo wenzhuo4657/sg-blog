@@ -69,7 +69,7 @@ public class SecuriyConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(TOKENfilter, UsernamePasswordAuthenticationFilter.class);
 
         //允许跨域
-        http.cors();
+
 
     }
 }

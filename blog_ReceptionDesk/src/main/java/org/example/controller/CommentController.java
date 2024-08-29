@@ -32,7 +32,7 @@ public class CommentController {
 
     @GetMapping("linkCommentList")
     public ResponseResult LinkCommentList(Integer pageNum,Integer pageSize){
-        return  commentService.commentList(AppHttpCodeEnum.Link_Comment,null,pageNum,pageNum);
+        return  commentService.commentList(AppHttpCodeEnum.Link_Comment,null,pageNum,pageSize);
     }
 
 

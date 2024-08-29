@@ -21,8 +21,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         LambdaQueryWrapper<User> wrapper=new LambdaQueryWrapper<>();
         wrapper.eq(User::getUserName,username);
         User user=mapper.selectOne(wrapper);
-
-
         if (Objects.isNull(user)){
             throw new RuntimeException("用户名不存在");
         }

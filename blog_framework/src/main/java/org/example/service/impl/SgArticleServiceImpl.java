@@ -39,7 +39,7 @@ public class SgArticleServiceImpl extends ServiceImpl<SgArticleMapper, SgArticle
     public ResponseResult hot() {
         LambdaQueryWrapper<SgArticle> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(SgArticle::getStatus, 0);//必须是正式文章
-        wrapper.orderByDesc(SgArticle::getViewCount);//根据访问量进行升序排序
+        wrapper.orderByDesc(SgArticle::getViewCount);//根据访问量进行降序排序
         Page<SgArticle> page = new Page<>(1, 10);//最多查询前10名
         page(page, wrapper);
         List<SgArticle> articles = page.getRecords();
@@ -103,7 +103,6 @@ public class SgArticleServiceImpl extends ServiceImpl<SgArticleMapper, SgArticle
         if (category!=null){
             vo.setCategoryName(category.getName());
         }
-
         return ResponseResult.okResult(vo);
     }
 

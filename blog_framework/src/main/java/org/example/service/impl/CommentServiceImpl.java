@@ -66,13 +66,10 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
 
 //    处理CommentVo中不匹配字段
     private List<CommentVo> xxVo(List<Comment> records) {
-
         List<CommentVo> listVo= BeancopyUtils.copyBeanList(records,CommentVo.class);
         for (CommentVo vo:listVo){
             String nickname=service.getById(vo.getCreateBy()).getNickName();
             vo.setUsername(nickname);
-
-
             if(vo.getRootId()!=-1){
                 String ToCommentUserName = service.getById(vo.getToCommentUserId()).getNickName();
                 vo.setToCommentUserName(ToCommentUserName);
@@ -86,7 +83,6 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         if (!StringUtils.hasText(comment.getContent())){
             throw new SystemException(AppHttpCodeEnum.CONTENT_NOT_NULL);
         }
-
         save(comment);
         return ResponseResult.okResult();
     }
