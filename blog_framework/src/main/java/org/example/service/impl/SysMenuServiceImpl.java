@@ -9,6 +9,7 @@ import org.example.mapper.SysMenuMapper;
 import org.example.service.SysMenuService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -56,6 +57,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
             menus=mapper.select_Routers(userid);
         }
 
+
         List<SysMenu> RoutersTree=toRoutersTree(menus,0L);
         return RoutersTree;
 
@@ -68,10 +70,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
                 .filter(sysMenu -> sysMenu.getParentId().equals(l)).
                 map(menu -> menu.setChildren(getChildren(menu,menus))).
                 collect(Collectors.toList());
-
-
         return menuList;
-
 
     }
 
@@ -81,6 +80,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
                 .filter(m -> m.getParentId().equals(menu.getId()))
                 //如果有三层菜单的话，也就是子菜单的子菜单，我们就用下面那行递归(自己调用自己)来处理
                 .map(m -> m.setChildren(getChildren(m,menus)))
+//                这里停止递归的菜单上的设计，必须保证没有循环的id和parentId，否则就会陷入无限递归。
                 .collect(Collectors.toList());
         return childrenList;
     }

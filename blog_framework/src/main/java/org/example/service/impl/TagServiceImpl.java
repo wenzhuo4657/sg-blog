@@ -32,8 +32,6 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagSe
         LambdaQueryWrapper<Tag> wrapper=new LambdaQueryWrapper<>();
         wrapper.eq(StringUtils.hasLength(tagDto.getName()), Tag::getName,tagDto.getName());
         wrapper.eq(StringUtils.hasText(tagDto.getRemark()),Tag::getRemark,tagDto.getRemark());
-
-
         Page<Tag> page=new Page<>();
         page.setCurrent(pageNum);
         page.setSize(pageSize);
